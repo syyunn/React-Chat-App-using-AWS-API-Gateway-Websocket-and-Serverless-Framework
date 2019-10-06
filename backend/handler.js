@@ -110,13 +110,13 @@ const deleteConnection = connectionId => {
 
 module.exports.authorizerFunc = async (event, context, callback) => {
   const keys_url =
-    "https://cognito-idp.ap-southeast-2.amazonaws.com/USER_POOL_ID/.well-known/jwks.json";
+    "https://cognito-idp.ap-northeast-2.amazonaws.com/ap-northeast-2_SfhYrhMSu/.well-known/jwks.json";
   const {
     queryStringParameters: { token },
     methodArn
   } = event;
 
-  const app_client_id = APP_CLIENT_ID;
+  const app_client_id = "666g3fn7kufioen1blq0ilq9fb";
   if (!token) return context.fail("Unauthorized");
   const sections = token.split(".");
   let authHeader = jose.util.base64url.decode(sections[0]);

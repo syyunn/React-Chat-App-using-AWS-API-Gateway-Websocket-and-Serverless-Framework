@@ -1,8 +1,8 @@
 const aws_exports = {
   Auth: {
-    region: "ap-southeast-2",
-    userPoolId: "USER_POOL_ID",
-    userPoolWebClientId: "APP_CLIENT_ID",
+    region: "ap-northeast-2",
+    userPoolId: "ap-northeast-2_SfhYrhMSu",
+    userPoolWebClientId: "666g3fn7kufioen1blq0ilq9fb",
     mandatorySignIn: false,
     authenticationFlowType: "USER_SRP_AUTH"
   }

@@ -9,30 +9,27 @@ const ChatWindow = props => {
   const [isOpen, setIsOpen] = useState(false);
   const { username } = props.authData;
 
-  useEffect(
-    () => {
-      if (props.authData)
-        ws = new Sockette(
-          "wss://APP_CLIENT_ID.execute-api.ap-southeast-2.amazonaws.com/dev?token=" +
-            props.authData.signInUserSession.accessToken.jwtToken,
-          {
-            timeout: 5e3,
-            maxAttempts: 1,
-            onopen: e => console.log("connected:", e),
-            onmessage: e => onMessageReceied(e),
-            onreconnect: e => console.log("Reconnecting...", e),
-            onmaximum: e => console.log("Stop Attempting!", e),
-            onclose: e => console.log("Closed!", e),
-            onerror: e => console.log("Error:", e)
-          }
-        );
-      return function cleanup() {
-        ws && ws.close();
-        ws = null;
-      };
-    },
-    [messageList]
-  );
+  useEffect(() => {
+    if (props.authData)
+      ws = new Sockette(
+        "wss://666g3fn7kufioen1blq0ilq9fb.execute-api.ap-northeast-2.amazonaws.com/dev?token=" +
+          props.authData.signInUserSession.accessToken.jwtToken,
+        {
+          timeout: 5e3,
+          maxAttempts: 1,
+          onopen: e => console.log("connected:", e),
+          onmessage: e => onMessageReceied(e),
+          onreconnect: e => console.log("Reconnecting...", e),
+          onmaximum: e => console.log("Stop Attempting!", e),
+          onclose: e => console.log("Closed!", e),
+          onerror: e => console.log("Error:", e)
+        }
+      );
+    return function cleanup() {
+      ws && ws.close();
+      ws = null;
+    };
+  }, [messageList]);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
